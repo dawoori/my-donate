@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.io.IOException;
 import java.io.InputStream;
 
 @RestController
@@ -19,7 +18,7 @@ public class VoiceController {
     private static final Logger logger = LoggerFactory.getLogger(VoiceController.class);
 
     @GetMapping("/voice")
-    public ResponseEntity greeting(@RequestParam(value = "text", defaultValue = "오승욱 화이팅!") String text) throws IOException {
+    public ResponseEntity greeting(@RequestParam(value = "text", defaultValue = "오승욱 화이팅!") String text) {
         Polly helloWorld = new Polly(Region.getRegion(Regions.AP_NORTHEAST_2));
         InputStream speechStream = helloWorld.synthesize(text, OutputFormat.Mp3);
         InputStreamResource inputStreamResource = new InputStreamResource(speechStream);
@@ -28,6 +27,7 @@ public class VoiceController {
         httpHeaders.setCacheControl(CacheControl.noCache().getHeaderValue());
         httpHeaders.setContentType(MediaType.valueOf("audio/mpeg"));
 
+        logger.debug("Get Voice: " + text);
         return new ResponseEntity(inputStreamResource, httpHeaders, HttpStatus.OK);
     }
 }

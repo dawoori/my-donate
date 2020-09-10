@@ -15,17 +15,6 @@ function setConnected(connected) {
 function connect() {
     var socket = new SockJS('/voice-websocket');
     stompClient = Stomp.over(socket);
-    stompClient.connect({}, function (frame) {
-        setConnected(true);
-        console.log('Connected: ' + frame);
-        stompClient.subscribe('/topic/greetings', function (greeting) {
-            showGreeting(JSON.parse(greeting.body).content);
-            var player = document.getElementById('player');
-            console.log(JSON.parse(greeting.body).content);
-            player.src = '/voice?text=' + JSON.parse(greeting.body).content;
-            player.play();
-        });
-    });
 }
 
 function disconnect() {
@@ -36,13 +25,11 @@ function disconnect() {
     console.log("Disconnected");
 }
 
-function sendName() {
+function sendDonate() {
     stompClient.send("/app/donation", {}, JSON.stringify({'name': $("#name").val()}));
 }
 
-function showGreeting(message) {
-    $("#greetings").append("<tr><td>" + message + "</td></tr>");
-}
+
 
 connect();
 
@@ -52,5 +39,5 @@ $(function () {
     });
     $( "#connect" ).click(function() { connect(); });
     $( "#disconnect" ).click(function() { disconnect(); });
-    $( "#send" ).click(function() { sendName(); });
+    $( "#send" ).click(function() { sendDonate(); });
 });

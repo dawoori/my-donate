@@ -1,6 +1,5 @@
 package com.mydonate.voice;
 
-import java.io.IOException;
 import java.io.InputStream;
 
 import com.amazonaws.ClientConfiguration;
@@ -33,7 +32,7 @@ public class Polly {
         voice = describeVoicesResult.getVoices().get(58);
     }
 
-    public InputStream synthesize(String text, OutputFormat format) throws IOException {
+    public InputStream synthesize(String text, OutputFormat format) {
         SynthesizeSpeechRequest synthReq =
                 new SynthesizeSpeechRequest().withText(text).withVoiceId(voice.getId())
                         .withOutputFormat(format);
