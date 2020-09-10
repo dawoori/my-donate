@@ -1,4 +1,4 @@
-package com.mydonate.mydonate.voice;
+package com.mydonate.voice;
 
 import com.amazonaws.regions.Region;
 import com.amazonaws.regions.Regions;

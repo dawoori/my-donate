@@ -1,4 +1,4 @@
-package com.mydonate.mydonate;
+package com.mydonate;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package com.mydonate.mydonate.websocket;
+package com.mydonate.websocket;
 
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;

@@ -1,4 +1,4 @@
-package com.mydonate.mydonate.websocket;
+package com.mydonate.websocket;
 
 import lombok.Getter;
 

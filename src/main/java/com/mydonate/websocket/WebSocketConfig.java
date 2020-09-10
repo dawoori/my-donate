@@ -1,4 +1,4 @@
-package com.mydonate.mydonate.websocket;
+package com.mydonate.websocket;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;

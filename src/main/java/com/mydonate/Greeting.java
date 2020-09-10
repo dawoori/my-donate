@@ -1,4 +1,4 @@
-package com.mydonate.mydonate;
+package com.mydonate;
 
 public class Greeting {
     private final long id;

@@ -1,4 +1,4 @@
-package com.mydonate.mydonate.voice;
+package com.mydonate.voice;
 
 import java.io.IOException;
 import java.io.InputStream;
