@@ -6,12 +6,13 @@ import lombok.Setter;
 @Getter
 @Setter
 public class HelloMessage {
+    private String donationText;
     private String name;
 
     public HelloMessage() {
     }
 
-    public HelloMessage(String name) {
-        this.name = name;
+    public HelloMessage(String donationText) {
+        this.donationText = donationText;
     }
 }

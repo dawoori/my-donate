@@ -12,6 +12,6 @@ public class DonationController {
     @SendTo("/topic/greetings")
     public Donation greeting(HelloMessage message) throws InterruptedException {
         Thread.sleep(1000);
-        return new Donation(HtmlUtils.htmlEscape(message.getName()));
+        return new Donation(HtmlUtils.htmlEscape(message.getDonationText()));
     }
 }

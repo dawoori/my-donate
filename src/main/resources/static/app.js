@@ -21,7 +21,7 @@ function connect() {
         stompClient.subscribe('/topic/greetings', function (greeting) {
             showGreeting(JSON.parse(greeting.body).content);
             var player = document.getElementById('player');
-            console.log(JSON.parse(greeting.body).content);
+            console.log('/voice?text=' + JSON.parse(greeting.body).content);
             player.src = '/voice?text=' + JSON.parse(greeting.body).content;
             player.play();
         });
@@ -37,7 +37,7 @@ function disconnect() {
 }
 
 function sendName() {
-    stompClient.send("/app/donation", {}, JSON.stringify({'name': $("#name").val()}));
+    stompClient.send("/app/donation", {}, JSON.stringify({'donationText': $("#donationText").val()}));
 }
 
 function showGreeting(message) {
