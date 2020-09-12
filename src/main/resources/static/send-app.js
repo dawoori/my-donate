@@ -26,10 +26,8 @@ function disconnect() {
 }
 
 function sendDonate() {
-    stompClient.send("/app/donation", {}, JSON.stringify({'name': $("#name").val()}));
+    stompClient.send("/app/donation", {}, JSON.stringify({'donationText': $("#donationText").val()}));
 }
-
-
 
 connect();
 
